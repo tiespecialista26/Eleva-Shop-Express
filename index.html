@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eleva Shop Express</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">
+        <img class="logo-image" src="logo.png" alt="Eleva Shop Express" />
+        <div>
+          <h1>Eleva Shop Express</h1>
+          <p class="tagline">Sua loja rápida para o dia a dia</p>
+        </div>
+      </div>
+      <div class="contact">
+        <div>📞 WhatsApp: <a href="https://wa.me/5511966404921" target="_blank" rel="noreferrer">+55 11 96640-4921</a></div>
+        <div>✉️ Email: <a href="mailto:elevashopexpress@gmail.com">elevashopexpress@gmail.com</a></div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#galeria" class="nav-link">Galeria</a>
+      <button id="adminBtn" class="btn btn-secondary">Administrador</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="galeria" class="section">
+      <h2>Produtos</h2>
+      <p class="subtitle">Clique em um produto para ver detalhes.</p>
+      <div id="productsGrid" class="grid"></div>
+      <div id="noProducts" class="empty">Ainda não há produtos cadastrados.</div>
+    </section>
+
+  </main>
+
+  <!-- Painel de administrador -->
+  <div id="adminModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="closeAdmin">✕</button>
+      <div id="adminArea">
+        <h2>Painel de admin</h2>
+        <p class="hint">Senha de acesso: <strong>admin123</strong></p>
+
+        <div id="adminLogin" class="admin-section">
+          <label class="field">
+            <span>Senha</span>
+            <input type="password" id="adminPassword" placeholder="Digite a senha" />
+          </label>
+          <button id="loginBtn" class="btn">Entrar</button>
+          <div id="loginError" class="error"></div>
+        </div>
+
+        <div id="adminPanel" class="admin-section hidden">
+          <h3>Adicionar produto</h3>
+          <form id="productForm">
+            <label class="field">
+              <span>Nome</span>
+              <input type="text" id="productName" required placeholder="Nome do produto" />
+            </label>
+            <label class="field">
+              <span>Descrição</span>
+              <textarea id="productDescription" rows="3" placeholder="Descrição" required></textarea>
+            </label>
+            <label class="field">
+              <span>Preço</span>
+              <input type="text" id="productPrice" placeholder="Ex: 49,90" required />
+            </label>
+            <label class="field">
+              <span>Foto</span>
+              <input type="file" id="productImage" accept="image/*" required />
+            </label>
+            <button type="submit" class="btn">Salvar produto</button>
+          </form>
+
+          <h3>Produtos cadastrados</h3>
+          <div id="adminProductList" class="admin-list"></div>
+
+          <button id="logoutBtn" class="btn btn-secondary">Sair</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Eleva Shop Express •</p>
+  </footer>
+
+  <!-- Firebase (opcional) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
